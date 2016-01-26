@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- configuration for gomocup online -->
+
+<uploadconfiguration>
+  <localpath>c:\temp\html</localpath>
+  <!-- this path will be watching for file changes -->
+
+  <searchpattern>*.html</searchpattern>
+  <!-- these files in localpath will be watching for file changes -->
+
+  <host>http://gomocup.wz.cz/online/upload.php?year=2011&amp;filename=table/test/_table.html&amp;tournament=test</host>
+  <!-- can be ftp or http -->
+
+  <username></username>
+  <!-- in case of ftp -->
+  
+  <password></password>
+  <!-- in case of ftp -->
+
+  <remotepath></remotepath>
+  <!-- in case of ftp -->
+   
+  <timeout>40000</timeout>
+  <!-- for ftp or http request -->
+
+</uploadconfiguration>
