@@ -76,6 +76,16 @@ namespace Gomocup.PsqUploader
                 remote = args[5];
                 timeout = int.Parse(args[6]);
             }
+            else
+            {
+                local = args[0];
+                searchPattern = args[1];
+                server = args[2];
+                user = args[3];
+                pass = args[4];
+                remote = args[5];
+                timeout = int.Parse(args[6]);
+            }
 
 
 
