@@ -34,6 +34,7 @@ namespace Gomocup.PsqUploader
         static string user;
         static string pass;
         static string remote;
+        static string remoteFileName = null;
         static int timeout;
         static int sleep;
 
@@ -64,7 +65,7 @@ namespace Gomocup.PsqUploader
                 Console.WriteLine("local searchPattern server user pass remote timeout");
                 return;
             }
-            else if (args.Length > 7)
+            else if (args.Length > 8)
             {
                 Console.WriteLine("too many parametres....");
                 Console.WriteLine("local searchPattern server user pass remote timeout");
@@ -75,6 +76,10 @@ namespace Gomocup.PsqUploader
                 pass = args[4];
                 remote = args[5];
                 timeout = int.Parse(args[6]);
+                if (args.Length == 8)
+                {
+                    remoteFileName = args[7];
+                }
             }
             else
             {
@@ -85,6 +90,10 @@ namespace Gomocup.PsqUploader
                 pass = args[4];
                 remote = args[5];
                 timeout = int.Parse(args[6]);
+                if (args.Length == 8)
+                {
+                    remoteFileName = args[7];
+                }
             }
 
 
@@ -326,9 +335,10 @@ namespace Gomocup.PsqUploader
                 lc.hash = hash;
 
                 string extension = Path.GetExtension(e.FullPath);
-                string remoteFileName = String.Format("{0}{2}", Path.GetFileNameWithoutExtension(e.FullPath), lc.count, extension);
+                string _remoteFileName = remoteFileName == null ? String.Format("{0}{2}",
+                    Path.GetFileNameWithoutExtension(e.FullPath), lc.count, extension) : remoteFileName;
 
-                Upload(content, e.FullPath, remoteFileName);
+                Upload(content, e.FullPath, _remoteFileName);
 
                 fileDictionary[e.FullPath] = lc;
             }
